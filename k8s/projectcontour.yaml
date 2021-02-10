@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: projectcontour
+  namespace: argocd
+spec:
+  destination:
+    namespace: projectcontour
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    jsonPointers:
+    - /status
+    - /spec/preserveUnknownFields
+    kind: CustomResourceDefinition
+  project: default
+  source:
+    path: projectcontour/
+    repoURL: https://github.com/muzcategui1106-gs/addons-config.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+      limit: -1
