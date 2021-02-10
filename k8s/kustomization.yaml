@@ -3,3 +3,4 @@ namespace: argocd
 resources:
 - projectcontour.yaml
 - cert-manager.yaml
+- monitoring.yaml
