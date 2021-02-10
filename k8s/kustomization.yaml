@@ -1,4 +1,4 @@
 namespace: argocd
 
 resources:
-  projectcontour.yaml
+- projectcontour.yaml
