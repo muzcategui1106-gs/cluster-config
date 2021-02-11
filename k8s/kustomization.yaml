@@ -4,3 +4,4 @@ resources:
 - projectcontour.yaml
 - cert-manager.yaml
 - monitoring.yaml
+- external-dns.yaml
